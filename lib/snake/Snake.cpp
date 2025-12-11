@@ -9,29 +9,29 @@ void Snake::reset() {
     // Начальная позиция в центре
     body.push_front({GRID_W / 2, GRID_H / 2});
     body.push_back({GRID_W / 2 - 1, GRID_H / 2});
-    currentDir = Direction::RIGHT;
+    currentDirection = Direction::RIGHT;
     growing = false;
 }
 
 void Snake::setDirection(Direction dir) {
     // Запрещаем разворот на 180 градусов
-    if (dir == Direction::UP && currentDir == Direction::DOWN) return;
-    if (dir == Direction::DOWN && currentDir == Direction::UP) return;
-    if (dir == Direction::LEFT && currentDir == Direction::RIGHT) return;
-    if (dir == Direction::RIGHT && currentDir == Direction::LEFT) return;
-    currentDir = dir;
+    if (dir == Direction::UP && currentDirection == Direction::DOWN) return;
+    if (dir == Direction::DOWN && currentDirection == Direction::UP) return;
+    if (dir == Direction::LEFT && currentDirection == Direction::RIGHT) return;
+    if (dir == Direction::RIGHT && currentDirection == Direction::LEFT) return;
+    currentDirection = dir;
 }
 
 Direction Snake::getDirection() const {
-    return currentDir;
+    return currentDirection;
 }
 
 void Snake::update() {
-    if (currentDir == Direction::NONE) return;
+    if (currentDirection == Direction::NONE) return;
 
     sf::Vector2i newHead = body.front();
 
-    switch (currentDir) {
+    switch (currentDirection) {
         case Direction::UP:    newHead.y--; break;
         case Direction::DOWN:  newHead.y++; break;
         case Direction::LEFT:  newHead.x--; break;

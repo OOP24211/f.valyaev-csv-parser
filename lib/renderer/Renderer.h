@@ -17,7 +17,7 @@ public:
     Renderer(sf::RenderWindow& win);
     bool loadFont(const std::string& path);
     void renderGame(const Snake& snake, const Food& food, int score, int time);
-    void renderMenu(GameState state, int score);
+    void renderMenu(GameState gameState, int score);
     void display();
     void clear();
 };

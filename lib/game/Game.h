@@ -12,7 +12,7 @@ private:
     Snake snake;
     Food food;
     
-    GameState state;
+    GameState gameState;
     int score;
     sf::Clock moveClock;
     sf::Clock gameClock;

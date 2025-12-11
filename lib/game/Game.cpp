@@ -14,7 +14,7 @@ Game::Game()
 }
 
 void Game::restart() {
-    state = GameState::PLAYING;
+    gameState = GameState::PLAYING;
     score = 0;
     gameTime = 0;
     snake.reset();
@@ -39,14 +39,14 @@ void Game::processInput() {
 
         if (event.type == sf::Event::KeyPressed) {
             // Глобальные клавиши меню
-            if (state == GameState::PAUSED || state == GameState::GAME_OVER) {
+            if (gameState == GameState::PAUSED || gameState == GameState::GAME_OVER) {
                 if (event.key.code == sf::Keyboard::R) restart();
                 if (event.key.code == sf::Keyboard::Q) window.close();
             }
 
             // Переключение паузы
             if (event.key.code == sf::Keyboard::Escape) {
-                if (state == GameState::PLAYING) state = GameState::PAUSED;
+                if (gameState == GameState::PLAYING) gameState = GameState::PAUSED;
                 else if (state == GameState::PAUSED) state = GameState::PLAYING;
             }
 

@@ -7,7 +7,7 @@
 class Snake {
 private:
     std::deque<sf::Vector2i> body;
-    Direction currentDir;
+    Direction currentDirection;
     bool growing;
 
 public:
